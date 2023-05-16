@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+  api:
+    container_name: api
+    restart: always
+    build: .
+    image: api
+    links:
+      - postgres
+    ports:
+      - "3000:3000"
+    networks:
+      - nestjs-prisma-postgres-fastify
+  postgres:
+    container_name: postgres
+    restart: always
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    networks:
+      - nestjs-prisma-postgres-fastify
+networks:
+  nestjs-prisma-postgres-fastify:
