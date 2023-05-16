@@ -3,6 +3,12 @@
 ```bash
 npm install
 ```
+```bash
+npx prisma migrate dev --name "init"
+```
+```bash
+npx prisma db seed
+```
 
 ## Building
 
