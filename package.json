@@ -16,10 +16,12 @@
     "test:cov": "jest --coverage --force-exit --detectOpenHandles"
   },
   "dependencies": {
+    "@fastify/static": "^6.10.1",
     "@nestjs/common": "9.4.1",
     "@nestjs/config": "2.3.2",
     "@nestjs/core": "9.4.1",
     "@nestjs/platform-express": "9.4.1",
+    "@nestjs/platform-fastify": "9.4.1",
     "@nestjs/swagger": "6.3.0",
     "@nestjs/typeorm": "9.0.1",
     "@prisma/client": "^4.14.0",

@@ -5,6 +5,8 @@ services:
     restart: always
     build: .
     image: api
+    environment:
+      DATABASE_URL: "postgresql://root:root@postgres:5432/postgres?schema=public"
     links:
       - postgres
     ports:
