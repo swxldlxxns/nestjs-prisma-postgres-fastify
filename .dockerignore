@@ -1,4 +1,8 @@
+prisma/migrations
 dist
 coverage
 node_modules
 .idea
+.env
+docker-compose.yml
+Dockerfile
