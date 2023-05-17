@@ -10,6 +10,9 @@ export class UserService {
 
   async findMany(): Promise<UserInterface[]> {
     return this._prismaService.user.findMany({
+      where: {
+        status: true,
+      },
       select: {
         id: true,
         name: true,
@@ -22,7 +25,9 @@ export class UserService {
     });
   }
 
-  async findUniqueByUser(user: string): Promise<User> {
-    return this._prismaService.user.findUnique({ where: { user } });
+  async findByUser(user: string): Promise<User> {
+    return this._prismaService.user.findFirst({
+      where: { user, status: true },
+    });
   }
 }

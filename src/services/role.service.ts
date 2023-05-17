@@ -11,6 +11,7 @@ export class RoleService {
     return this._prismaService.rol.findMany({
       where: {
         userId,
+        status: true,
       },
     });
   }

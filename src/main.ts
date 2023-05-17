@@ -35,6 +35,6 @@ async function bootstrap(): Promise<void> {
   SwaggerModule.setup('doc', app, document);
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
-  await app.listen(3000);
+  await app.listen(3000, '0.0.0.0');
 }
 bootstrap().then();

@@ -27,7 +27,7 @@ export class AuthService {
     user,
     pass,
   }: LoginRequestDto): Promise<LoginResponseInterface | null> {
-    const userInfo = await this._userService.findUniqueByUser(user);
+    const userInfo = await this._userService.findByUser(user);
 
     if (userInfo && (await this._verifyPassword(userInfo.pass, pass))) {
       const roles: Rol[] = await this._roleService.findManyByUserId(
@@ -47,7 +47,7 @@ export class AuthService {
   async refreshToken(
     user: string,
   ): Promise<RefreshTokenResponseInterface | null> {
-    const userInfo = await this._userService.findUniqueByUser(user);
+    const userInfo = await this._userService.findByUser(user);
 
     if (userInfo) {
       const roles: Rol[] = await this._roleService.findManyByUserId(
