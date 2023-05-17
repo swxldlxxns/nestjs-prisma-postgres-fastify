@@ -27,7 +27,7 @@ export class AuthService {
     user,
     pass,
   }: LoginRequestDto): Promise<LoginResponseInterface | null> {
-    const userInfo = await this._userService.findByUser(user);
+    const userInfo = await this._userService.findFirst({ user });
 
     if (userInfo && (await this._verifyPassword(userInfo.pass, pass))) {
       const roles: Rol[] = await this._roleService.findManyByUserId(
@@ -47,7 +47,7 @@ export class AuthService {
   async refreshToken(
     user: string,
   ): Promise<RefreshTokenResponseInterface | null> {
-    const userInfo = await this._userService.findByUser(user);
+    const userInfo = await this._userService.findFirst({ user });
 
     if (userInfo) {
       const roles: Rol[] = await this._roleService.findManyByUserId(
@@ -62,6 +62,10 @@ export class AuthService {
     }
 
     return null;
+  }
+
+  async hashPassword(password: string): Promise<string> {
+    return await argon2.hash(password);
   }
 
   private async _generate(
@@ -82,10 +86,6 @@ export class AuthService {
     ]);
 
     return { token, refreshToken };
-  }
-
-  private async _hashPassword(password: string): Promise<string> {
-    return await argon2.hash(password);
   }
 
   private async _verifyPassword(

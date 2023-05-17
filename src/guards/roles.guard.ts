@@ -6,7 +6,7 @@ import { metadataKey } from '../decorators/roles.decorator';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
-  constructor(private _reflector: Reflector) {}
+  constructor(private readonly _reflector: Reflector) {}
 
   canActivate(
     context: ExecutionContext,

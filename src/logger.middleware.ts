@@ -13,6 +13,7 @@ export class LoggerMiddleware implements NestMiddleware {
         headers: { authorization: req.headers.authorization },
         query: req.query,
         body: req.body,
+        params: req.params,
       }),
       req.url,
     );

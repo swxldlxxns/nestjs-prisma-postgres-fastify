@@ -1,6 +1,6 @@
 import { Logger, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtModule, JwtService } from '@nestjs/jwt';
 
 import config from './config';
 import { AppController } from './controllers/app.controller';
@@ -23,6 +23,8 @@ import { RefreshTokenStrategy } from './strategies/refresh-token.strategy';
   controllers: [AppController],
   providers: [
     AuthService,
+    ConfigService,
+    JwtService,
     JwtStrategy,
     Logger,
     PrismaService,

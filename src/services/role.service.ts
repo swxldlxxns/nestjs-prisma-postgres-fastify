@@ -5,7 +5,7 @@ import { PrismaService } from './prisma.service';
 
 @Injectable()
 export class RoleService {
-  constructor(private _prismaService: PrismaService) {}
+  constructor(private readonly _prismaService: PrismaService) {}
 
   async findManyByUserId(userId: number): Promise<Rol[]> {
     return this._prismaService.rol.findMany({
