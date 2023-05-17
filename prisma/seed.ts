@@ -1,16 +1,17 @@
 import { PrismaClient, User } from '@prisma/client';
-
+import * as argon2 from 'argon2';
 const prisma = new PrismaClient();
 
 async function main() {
+  const pass = await argon2.hash('admin');
   const user: User = await prisma.user.upsert({
     create: {
-      name: 'test',
-      user: 'test',
-      pass: 'test',
+      pass,
+      name: 'admin',
+      user: 'admin',
     },
     update: {},
-    where: { user: 'test' },
+    where: { user: 'admin' },
   });
 
   await prisma.rol.upsert({

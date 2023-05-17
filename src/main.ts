@@ -18,7 +18,7 @@ async function bootstrap(): Promise<void> {
     );
   const document: OpenAPIObject = SwaggerModule.createDocument(
     app,
-    new DocumentBuilder().setTitle('TEST').addBearerAuth().build(),
+    new DocumentBuilder().setTitle('TEST').build(),
   );
 
   app.use(helmet());
