@@ -27,7 +27,7 @@ describe('AppController', () => {
   };
   const login = {
     token: 'test',
-    refreshToken: 'token',
+    refreshToken: 'test',
   };
   const refreshToken = login;
   const credentials = {

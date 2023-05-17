@@ -16,4 +16,5 @@ module.exports = {
   coverageDirectory: './coverage',
   collectCoverageFrom: ['**/*.service.ts', '**/*.controller.ts'],
   testEnvironment: 'node',
+  setupFiles: ['<rootDir>/JestSetEnvVars.js'],
 };
