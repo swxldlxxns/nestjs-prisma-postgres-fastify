@@ -15,6 +15,7 @@ module.exports = {
   },
   coverageDirectory: './coverage',
   collectCoverageFrom: ['**/*.service.ts', '**/*.controller.ts'],
+  coveragePathIgnorePatterns: ['prisma.service.ts'],
   testEnvironment: 'node',
-  setupFiles: ['<rootDir>/JestSetEnvVars.js'],
+  setupFiles: ['<rootDir>/jest.env.js'],
 };
