@@ -44,8 +44,8 @@ import { UserService } from '../services/user.service';
 @Controller()
 export class AppController {
   constructor(
-    private readonly _userService: UserService,
     private readonly _authService: AuthService,
+    private readonly _userService: UserService,
   ) {}
 
   @Get()
@@ -71,7 +71,7 @@ export class AppController {
   @ApiUnauthorizedResponse()
   @ApiForbiddenResponse()
   @ApiBadRequestResponse()
-  async geOne(@Param('id') id: string): Promise<UserInterface> {
+  async getOne(@Param('id') id: string): Promise<UserInterface> {
     return this._userService.findOne({ id: +id });
   }
 
