@@ -147,7 +147,7 @@ describe('AppController', () => {
     it('should return user', async () => {
       const result: UserInterface = await appController.update(
         req,
-        <UpdateRequestDto>{},
+        <UpdateRequestDto>undefined,
       );
 
       expect(result).toEqual(user);
